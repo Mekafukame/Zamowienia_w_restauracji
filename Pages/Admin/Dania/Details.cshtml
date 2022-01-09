@@ -1,0 +1,51 @@
+﻿@page
+@model Zamowienia_w_restauracji.Pages.Dania.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="content">
+    <h1>Details</h1>
+
+    <div>
+        <h4>Danie</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Danie.Nazwa)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Danie.Nazwa)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Danie.Sklad)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Danie.Sklad)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Danie.Rodzaj)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Danie.Rodzaj)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Danie.Cena)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Danie.Cena)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Danie.Zdjecie)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Danie.Zdjecie)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.Danie.ID">Edit</a> |
+        <a asp-page="./Index">Back to List</a>
+    </div>
+</div>

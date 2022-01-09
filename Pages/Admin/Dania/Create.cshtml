@@ -1,0 +1,65 @@
+﻿@page
+@model Zamowienia_w_restauracji.Pages.Dania.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="content col-6 offset-3">
+<h1>Dodaj nowy wiersz</h1>
+
+<h4>Danie</h4>
+<hr />
+<div>
+    <section >
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Danie.Nazwa" class="control-label"></label>
+                <input asp-for="Danie.Nazwa" class="form-control" />
+                <span asp-validation-for="Danie.Nazwa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Danie.Sklad" class="control-label"></label>
+                <textarea asp-for="Danie.Sklad" class="form-control" ></textarea>
+                <span asp-validation-for="Danie.Sklad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Danie.Rodzaj" class="control-label"></label>             
+                <select asp-for="Danie.Rodzaj" class="form-control form-category">
+                    @{
+                        foreach (var category in Model.Kategorie)
+                        {
+                            <option value="@Html.ValueFor(Model => category)">@Html.DisplayFor(Model => category)</option>
+                        }
+                    }
+                </select>
+                <a asp-page="/admin/kategorie/create"><span class="material-icons-outlined md-38 center-height menu-add-icon">add</span></a>
+                <span asp-validation-for="Danie.Rodzaj" class="text-danger"></span>                
+            </div>
+            <div class="form-group">
+                <label asp-for="Danie.Cena" class="control-label"></label>
+                <input asp-for="Danie.Cena" class="form-control" />
+                <span asp-validation-for="Danie.Cena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Danie.Zdjecie" class="control-label"></label>
+                <input type="file" asp-for="Danie.Zdjecie" class="form-control file-control" />
+                <span asp-validation-for="Danie.Zdjecie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </section>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="~/js/CustomValidation.js"></script>
+}

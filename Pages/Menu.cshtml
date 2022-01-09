@@ -1,0 +1,74 @@
+﻿@page
+@model Zamowienia_w_restauracji.Pages.MenuModel
+
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="content">
+    <h1 class="page-header">Menu</h1>
+
+    @{
+        <div class="filters">
+            <form>
+                <p>
+                    <input type="submit" value="Wszystkie" />
+                </p>
+            </form>
+            @foreach (var category in Model.Kategorie)
+            {
+                <form>
+                    <p>
+                        <input type="submit" name="SearchString" value="@Html.DisplayFor(Model => category)" />
+                    </p>
+                </form>
+            }            
+        </div>
+        foreach (var category in Model.Kategorie)
+        {
+            if (string.IsNullOrEmpty(Model.Kategoria))
+            {
+                <div class="Category">
+                    <h2>@Html.DisplayFor(Model => category)</h2>
+                    <hr />
+                </div>
+            }
+            else if (Model.Kategoria == category)
+            {
+                <div class="Category">
+                    <h2>@Html.DisplayFor(Model => category)</h2>
+                    <hr />
+                </div>
+            }
+            foreach (var item in Model.Danie)
+            {
+                if (item.Rodzaj == category)
+                {
+                    <div class="row menu">
+                        <div>
+                            <img src="~/Grafiki/Menu/@Html.DisplayFor(modelItem => item.Zdjecie)" alt="Danie" />
+                        </div>
+                        <div class="col-8">
+                            <div class="row col-12">
+                                <div class="menu-name">
+                                    @Html.DisplayFor(modelItem => item.Nazwa)
+                                </div>
+                            </div>
+                            <div class="row col-12">
+                                @Html.DisplayFor(modelItem => item.Sklad)
+                            </div>
+                        </div>
+
+                        <div class="col-1">
+                            <p class="center-height">@Html.DisplayFor(modelItem => item.Cena)zł</p>
+                        </div>
+                        <div class="col-1 ">
+                            <a class="center-height" asp-page="Cart" asp-page-handler="buynow" asp-route-id="@item.ID"><span class="material-icons-outlined menu-add-icon center-height md-48">shopping_bag</span></a>
+                        </div>
+                    </div>
+                    <br />
+                }
+            }
+        }
+    }
+</div>

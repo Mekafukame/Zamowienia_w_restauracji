@@ -1,0 +1,306 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+.login-bttn {
+    text-align: right;
+    display:inline-flex;  
+    float:left;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {  
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.frame {
+    border: 1px solid #D6D6D6;
+    border-radius: 5px;
+    padding:5px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+    
+}
+@media (min-width: 768px) {    
+  html {
+    font-size: 16px;
+  }
+}
+
+.Address label {
+    font-size: 25px;
+    font-weight: bold;
+    color: #191919 !important;
+}
+.Address p {
+    font-size: 20px;
+    color: #191919 !important;
+}
+
+.menu {
+    color: #191919 !important;
+    font-size: 20px;   
+}
+.menu-name{
+    font-weight: bold;
+    font-size: 25px;
+
+}
+.center-height {
+    display: flex!important;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;   
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.center-height-no-height {
+    display: flex !important;
+    justify-content: center;
+    flex-direction: column;    
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.filters{
+    margin-bottom: 50px;
+}
+.filters form {
+    display: inline-block;
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+   
+}
+.filters input {
+    border: 0px solid;
+    border-radius: 5px;
+    color: #333533 !important;
+    background-color: #D6D6D6;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px;
+    transition: .2s all;
+}
+.filters input:hover {
+    transform: scale(1.05);        
+    background-color: #898989;
+    transition: .2s all;
+}
+
+.Category{
+    text-align: center;
+}
+
+.Category hr, .filters hr, .Cart hr{
+    border-width: 5px;
+    border-radius: 50%;
+}
+
+.Category h2 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #272727 ;
+}
+
+.menu-add-icon {
+    color: #191919 !important;
+    transition: .2s all;
+}
+
+.page-header {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #272727;
+}
+
+.menu-add-icon:hover {
+    transform: scale(1.2);
+    color: #303030 !important;   
+    transition: .2s all;
+}
+.menu img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #383838;
+    float: right;
+}
+
+.Cart{
+    color: #191919 !important;
+    font-size: 25px;
+}
+.Cart-headers{
+    color: #191919 !important;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.main-site {
+    position: fixed;     
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: #FFD100;
+}
+.main-site h1 {
+    font-size: 100px;
+    font-weight: bold;
+    text-shadow: 2.5px 2.5px 5px rgba(255, 229, 109, 0.75), -5px -5px rgba(0, 0, 0, 0.25);
+}
+.navbar a, .navbar button {
+    font-size: 20px;
+    border-width: 0px;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: #D6D6D6 !important;
+    transition: .2s all;
+}
+.navbar a:hover, .navbar button:hover {
+    transform:scale(1.1);    
+    color: #898989 !important;
+    transition: .2s all;
+}
+.material-icons.md-30 {
+    font-size: 30px;
+    padding-right: 10px;
+    float:left;
+}
+.material-icons-outlined.md-48, .material-icons.md-48 {
+    font-size: 48px;
+    float: left;
+}
+.material-icons-outlined.md-60, .material-icons.md-60 {
+    font-size: 60px;
+    float: left;
+}
+.material-icons-outlined.md-38, .material-icons.md-38{
+    font-size: 38px;    
+}
+
+.admin-panel-row-a, .admin-panel-row-a > div {
+
+    color: #191919 !important;
+    font-size: 36px;
+    font-weight: bold;
+    transition: .3s all;
+}
+.admin-panel-row-a:hover, .admin-panel-row-a:hover > div {
+    text-decoration: none;
+    transform: scale(1.01);
+    color: #4b4b4b !important;
+    transition: .3s all;
+}
+
+.admin-panel-row {
+    padding: 15px;
+    margin:15px 30px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(160, 160, 160) 0%,rgba(120, 120, 120, 0.75) 100%);
+    border-radius: 10px;
+}
+
+.form-category{
+    width:85% !important;       
+    float:left;
+}
+.file-control{
+    height:auto;
+}
+.control-label{
+    display:block;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.content hr{
+    color: rgb(60,60,60);
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+
+}
+
+.navbar {
+    background-color: #333533;
+    border-bottom: 2px solid;
+    border-color: #FFD100;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: 'Martel', serif;
+    
+    background-size: cover;
+    background-image: url("../Grafiki/background.jpg");
+}
+
+.account-content {              
+    display: block;
+}
+
+.content {
+    background: linear-gradient(to bottom, rgba(100, 100, 100, 0.9) 0%,rgba(80, 80, 80, 0.9) 100%);
+    border-radius: 10px;
+    padding:20px;
+    display:block;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+   
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #333533;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    color: #D6D6D6 !important;
+    border-top: 2px solid;
+    border-color: #FFD100 !important;
+}

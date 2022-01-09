@@ -1,0 +1,65 @@
+﻿@page
+@model Zamowienia_w_restauracji.Pages.CartModel
+@{
+    ViewData["Title"] = "Koszyk";
+}
+<div class="content">
+    <h1 class="page-header">@ViewData["Title"]</h1>
+    <br />
+    <div>
+        <section class="Cart">
+            @if (Model.cart != null && Model.cart.Count() > 0)
+            {
+                <form method="post" asp-page="cart" asp-page-handler="update">
+                    <div class="row Cart-headers">
+                        <div class="col-2 center-height-no-height">Zdjęcie</div>
+                        <div class="col-4 center-height-no-height">Nazwa</div>
+                        <div class="col-2 center-height-no-height">Cena</div>
+                        <div class="col-1 center-height-no-height">Ilość</div>
+                        <div class="col-2 center-height-no-height">Suma</div>
+                    </div>
+                    <hr />
+
+                    @foreach (var item in Model.cart)
+                    {
+                        <div class="row">
+                            <div class="menu col-2 center-height-no-height"><img src="~/Grafiki/Menu/@item.Danie.Zdjecie" /></div>
+                            <div class="col-4 center-height-no-height">@item.Danie.Nazwa</div>
+                            <div class="col-2 center-height-no-height">@(item.Danie.Cena.ToString("N2"))zł</div>
+                            <div class="col-1 center-height-no-height"><input type="number" name="quantities" onchange="submit()" value="@item.Quantity" min="1" max="99" style="width: 100%; background: none; color: #191919; transform: scale(1.5);" /></div>
+                            <div class="col-2 center-height-no-height">
+                                @((item.Danie.Cena * item.Quantity).ToString("N2"))zł
+                            </div>
+                            <div>
+                                <a asp-page="cart" asp-page-handler="delete" asp-route-id="@item.Danie.ID"><span class="material-icons-outlined md-48 center-height menu-add-icon">clear</span></a>
+                            </div>
+                        </div>
+                        <br />
+                    }
+
+                    <hr />
+                    <div class="row Cart-headers">
+                        <div class="col-1 offset-8 center-height-no-height">Suma:</div>
+                        <div class="col-2 center-height-no-height">@(Model.Total.ToString("N2"))zł</div>
+                    </div>
+
+                </form>
+            }
+            else
+            {
+                <div>Twój Koszyk jest pusty!</div>
+            }
+            <br />
+            <div class="row">
+                <div class="col-6">
+                    <a asp-page="Menu">Kontynuuj zakupy</a>
+                </div>
+                @if (Model.cart != null && Model.cart.Count() > 0) { 
+                <div class="col-6" style="text-align:right;">
+                    <a asp-page="Order">Przejdź do zamówienia</a>
+                </div>
+                }
+            </div>
+        </section>
+    </div>
+</div>

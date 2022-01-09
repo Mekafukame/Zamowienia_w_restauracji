@@ -1,0 +1,33 @@
+﻿@page
+@model Zamowienia_w_restauracji.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+
+    <h1><span class="material-icons md-48">settings</span> Zarządzanie Kategoriami</h1>
+
+    <div class="row">
+        <a asp-page="Create"><span class="material-icons-outlined md-60 center-height menu-add-icon">add</span></a>
+    </div>
+    <br />
+    @foreach (var item in Model.Kategorie)
+    {
+        <div class="row">
+            <div class="col-10 menu-name">
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </div>
+            <div>
+                <a asp-page="./Edit" asp-route-id="@item.ID"><span class="material-icons-outlined md-48 center-height menu-add-icon">edit</span></a>
+                <a asp-page="./Delete" asp-route-id="@item.ID"><span class="material-icons-outlined md-48 center-height menu-add-icon">clear</span></a>
+            </div>
+        </div>
+        <hr />
+    }
+    <div class="row">
+        <a asp-page="/Admin/Zarzadzanie"><span class="material-icons-outlined md-48 center-height menu-add-icon">arrow_back</span></a>
+    </div>
+</div>

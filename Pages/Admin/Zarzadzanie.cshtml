@@ -1,0 +1,23 @@
+﻿@page
+@model Zamowienia_w_restauracji.Pages.Admin.ZarzadzanieModel
+@{
+    ViewData["Title"] = "Panel Administracyjny";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="content">
+    <a class="admin-panel-row-a center-height " asp-page="dania/Index">
+        <div class=" row admin-panel-row col-12">
+            <span class="material-icons md-48">settings</span><span>Zarządzanie Menu</span>
+        </div>
+    </a>
+    <a class="admin-panel-row-a center-height " asp-page="Kategorie/Index">
+        <div class=" row admin-panel-row col-12">
+            <span class="material-icons md-48">settings</span><span>Zarządzanie Kategoriami</span>
+        </div>
+    </a>
+    <a class="admin-panel-row-a center-height" asp-page="Zamowienia/Index">
+        <div class=" row admin-panel-row col-12" >
+            <span class="material-icons md-48">settings</span><span>Zarządzanie Zamówieniami</span>
+        </div>
+    </a>
+</div>

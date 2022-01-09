@@ -1,0 +1,85 @@
+﻿@page
+@model Zamowienia_w_restauracji.Pages.Zamowienia.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="content">
+    <h1>Details</h1>
+
+    <div>
+        <h4>Zamowienie</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Nr zamówienia
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Zamowienie.First().Nr_zamowienia
+            </dd>
+            <dt class="col-sm-2">
+                User ID
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Zamowienie.First().User_ID
+            </dd>
+        </dl>
+
+        @foreach (var item in Model.Zamowienie)
+        {
+            <hr style="border-width:2px;" />
+            <dl>
+                @foreach (var danie in Model.Dania)
+                {
+                    if (danie.ID == item.Danie_ID)
+                    {
+
+                        <dt class="col-sm-2">
+                            Nazwa
+                        </dt>
+                        <dd class="col-sm-10">
+                            @danie.Nazwa
+                        </dd>
+                        <dt class="col-sm-2">
+                            Skład
+                        </dt>
+                        <dd class="col-sm-10">
+                            @danie.Sklad
+                        </dd>
+                        <dt class="col-sm-2">
+                            Kategoria
+                        </dt>
+                        <dd class="col-sm-10">
+                            @danie.Rodzaj
+                        </dd>
+                        <dt class="col-sm-2">
+                            Cena
+                        </dt>
+                        <dd class="col-sm-10">
+                            @danie.Cena
+                        </dd>
+
+                    }
+
+                }
+                <dt class="col-sm-2">
+                    Ilość
+                </dt>
+                <dd class="col-sm-10">
+                    @item.Ilosc
+                </dd>
+                <dt class="col-sm-2">
+                    Suma
+                </dt>
+                <dd class="col-sm-10">
+                    @item.Cena
+                </dd>
+            </dl>
+                }
+
+            </div>
+    <div>        
+        <a asp-page="./Index">Back to List</a>
+    </div>
+</div>

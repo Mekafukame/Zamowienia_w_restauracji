@@ -1,0 +1,101 @@
+﻿@page
+@model Zamowienia_w_restauracji.Pages.OrderModel
+@{
+    ViewData["Title"] = "Podsumowanie";
+}
+<div class="content">
+    <h1 class="page-header">@ViewData["Title"]</h1>
+    <br />
+    <div>
+        <section class="Zamowienie">
+
+            @if (Model.cart != null && Model.cart.Count() > 0)
+            {
+                <div class="row Cart-headers">
+                    <div class="col-4 center-height-no-height">Nazwa</div>
+                    <div class="col-2 offset-1 center-height-no-height">Cena</div>
+                    <div class="col-1 offset-1 center-height-no-height">Ilość</div>
+                    <div class="col-2 offset-1 center-height-no-height">Suma</div>
+                </div>
+                <hr style="border-width:3px;" />
+                @foreach (var item in Model.cart)
+                {
+                    <div class="row">
+                        <div class="col-4 center-height-no-height">@item.Danie.Nazwa</div>
+                        <div class="col-2 offset-1 center-height-no-height">@(item.Danie.Cena.ToString("N2"))zł</div>
+                        <div class="col-1 offset-1 center-height-no-height">@item.Quantity</div>
+                        <div class="col-2 offset-1 center-height-no-height">
+                            @((item.Danie.Cena * item.Quantity).ToString("N2"))zł
+                        </div>
+                    </div>
+                    <hr />
+                }
+                <div class="row Cart-headers" style="margin-bottom: 20px;">
+                    <div class="col-1 offset-8 center-height-no-height">Suma:</div>
+                    <div class="col-2 offset-1 center-height-no-height">@(Model.Total.ToString("N2"))zł</div>
+                </div>
+                <h1 class="page-header">Dane do dostawy</h1>
+                <hr />
+                <form id="Order" method="post" asp-page-handler="MakeOrder">
+                    <input type="hidden" asp-for="Adres.UserID" />
+                    <div class="row Address">
+                        <div class="row col-10 offset-1 frame">
+                            <div>
+                                <div class="row">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="col-6">
+                                        <label asp-for="Adres.Imie" class="control-label"></label>
+                                        <input id="firstName" asp-for="Adres.Imie" class="form-control" required />
+                                        <span asp-validation-for="Adres.Imie" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <label asp-for="Adres.Nazwisko" class="control-label"></label>
+                                        <input id="lastName" asp-for="Adres.Nazwisko" class="form-control" required />
+                                        <span asp-validation-for="Adres.Nazwisko" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label asp-for="Adres.Miasto" class="control-label"></label>
+                                        <input id="city" asp-for="Adres.Miasto" class="form-control" required />
+                                        <span asp-validation-for="Adres.Miasto" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="control-label">Kod Pocztowy</label>
+                                        <input id="postCode" asp-for="Adres.Kod_pocztowy" class="form-control" required />
+                                        <span asp-validation-for="Adres.Kod_pocztowy" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label asp-for="Adres.Ulica" class="control-label"></label>
+                                        <input id="street" asp-for="Adres.Ulica" class="form-control" required />
+                                        <span asp-validation-for="Adres.Ulica" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-3">
+                                        <label class="control-label">Nr Domu</label>
+                                        <input id="house" asp-for="Adres.Nr_domu" class="form-control" required />
+                                        <span asp-validation-for="Adres.Nr_domu" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-3">
+                                        <label class="control-label">Nr Lokalu</label>
+                                        <input id="local" asp-for="Adres.Nr_lokalu" class="form-control" />
+                                        <span asp-validation-for="Adres.Nr_lokalu" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-6">
+                            <a asp-page="Cart">Wróć</a>
+                        </div>
+                        <div class="col-6" style="text-align:right;">
+                            <input type="submit" value="Zamów" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+            }
+        </section>
+    </div>
+</div>

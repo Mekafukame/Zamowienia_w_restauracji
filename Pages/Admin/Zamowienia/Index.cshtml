@@ -1,0 +1,34 @@
+﻿@page
+@model Zamowienia_w_restauracji.Pages.Zamowienia.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="content">
+    <h1><span class="material-icons md-48">settings</span> Zarządzanie Zamówieniami</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Zamówienie
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Zamowienie)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item)
+                    </td>
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@item">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

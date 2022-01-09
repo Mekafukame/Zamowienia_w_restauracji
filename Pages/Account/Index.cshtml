@@ -1,0 +1,87 @@
+﻿@page
+@model Zamowienia_w_restauracji.Pages.Account.ChangePasswordModel
+@{
+        ViewData["Title"] = "Panel Użytkownika";
+}
+
+<div class="content col-10 offset-1">
+    <h1 class="page-header">Panel Użytkownika - @User.Identity.Name</h1>
+    <hr />
+    <h4 class="text-info text-center">@Model.StatusMessage</h4>
+    <div class="row col-8 offset-2 account-content">        
+        <h1>Edytuj dane</h1>                
+        <div>
+            <div>
+                <form method="post" asp-page-handler="ChangeAddress">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Adres.ID" />
+                    <input type="hidden" asp-for="Adres.UserID" />
+                    <div class="form-group">
+                        <label asp-for="Adres.Imie" class="control-label"></label>
+                        <input asp-for="Adres.Imie" class="form-control" />
+                        <span asp-validation-for="Adres.Imie" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Adres.Nazwisko" class="control-label"></label>
+                        <input asp-for="Adres.Nazwisko" class="form-control" />
+                        <span asp-validation-for="Adres.Nazwisko" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Adres.Miasto" class="control-label"></label>
+                        <input asp-for="Adres.Miasto" class="form-control" />
+                        <span asp-validation-for="Adres.Miasto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Kod Pocztowy</label>
+                        <input asp-for="Adres.Kod_pocztowy" class="form-control" />
+                        <span asp-validation-for="Adres.Kod_pocztowy" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Adres.Ulica" class="control-label"></label>
+                        <input asp-for="Adres.Ulica" class="form-control" />
+                        <span asp-validation-for="Adres.Ulica" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nr Domu</label>
+                        <input asp-for="Adres.Nr_domu" class="form-control" />
+                        <span asp-validation-for="Adres.Nr_domu" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nr Lokalu</label>
+                        <input asp-for="Adres.Nr_lokalu" class="form-control" />
+                        <span asp-validation-for="Adres.Nr_lokalu" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Zapisz" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row col-8 offset-2 account-content">
+        <hr />
+        <h1>Zmień hasło</h1>          
+            <section>
+                <form id="change-password-form" method="post" asp-page-handler="ChangePassword">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.OldPassword"></label>
+                        <input asp-for="Input.OldPassword" class="form-control" />
+                        <span asp-validation-for="Input.OldPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.NewPassword"></label>
+                        <input asp-for="Input.NewPassword" class="form-control" />
+                        <span asp-validation-for="Input.NewPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.ConfirmPassword"></label>
+                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Zmień hasło</button>
+                </form>
+            </section>              
+    </div>
+</div> 
+
